@@ -6,7 +6,8 @@ import { Environment, useGLTF } from '@react-three/drei';
 import { DepthOfField, EffectComposer } from '@react-three/postprocessing';
 
 /**
- * from tutorial: https://www.youtube.com/watch?v=5If5QGVY03Q
+ * from tutorial: https://0xca0a.gumroad.com/l/B4N4N4S
+ * https://www.youtube.com/watch?v=5If5QGVY03Q
  * 
  * Other links:
  * - https://sketchfab.com/
@@ -50,14 +51,14 @@ function Banana({ z }) {
 }
 
 export default function App({ count = 100 }) {
-  return <Canvas gl={{alpha: false }} camera={{ near: 0.01, far: 110, fov: 30 }}>
+  return <Canvas gl={{alpha: false }} camera={{ near: 0.01, far: 110 }}>
     <color attach="background" args={["#ffbf40"]} />
     <ambientLight intensity={0.5} />
     <Suspense fallback={null}>
       {[...Array(count)].map((_, i) => (<Banana key={i} z={-i} />))}
       <Environment preset="sunset" />
       <EffectComposer>
-        <DepthOfField target={[0, 0, 10]} focalLength={0.1} bokehScale={15} height={700} />
+        <DepthOfField target={[0, 0, 10]} focalLength={0.2} bokehScale={11} height={700} />
       </EffectComposer>
     </Suspense>
   </Canvas>
