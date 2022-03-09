@@ -5,7 +5,13 @@ import * as THREE from 'three';
 import { Environment, useGLTF } from '@react-three/drei';
 import { DepthOfField, EffectComposer } from '@react-three/postprocessing';
 
-
+/**
+ * from tutorial: https://www.youtube.com/watch?v=5If5QGVY03Q
+ * 
+ * Other links:
+ * - https://sketchfab.com/
+ * - https://gltf.report/
+ */
 function Banana({ z }) {
   const ref = useRef();
   const { nodes, materials } = useGLTF('/banana-v2-transformed.glb')
